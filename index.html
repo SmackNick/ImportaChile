@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ImportChile - Servicios de Importación de Clase Mundial</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <script src="https://formspree.io/js/formspree-react.min.js"></script>
+    <style>
+        :root {
+            --primary-color: #003399;
+            --secondary-color: #ff9900;
+            --text-color: #333;
+            --bg-color: #f8f9fa;
+        }
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        .hero {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+        }
+        .hero-content {
+            max-width: 800px;
+        }
+        h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            animation: fadeInUp 1s ease-out;
+        }
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .hero-subheadline {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+        .cta-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        .input-group {
+            display: flex;
+            gap: 1rem;
+        }
+        .cta-form input {
+            padding: 0.8rem;
+            font-size: 1rem;
+            border: none;
+            border-radius: 4px;
+            flex: 1;
+        }
+        .btn {
+            display: inline-block;
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 0.8rem 1.5rem;
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+        }
+        .btn:hover {
+            background-color: #e68a00;
+            transform: translateY(-2px);
+        }
+        .privacy-note {
+            font-size: 0.8rem;
+            opacity: 0.8;
+            margin-top: 1rem;
+        }
+        .benefits {
+            padding: 6rem 0;
+            background-color: white;
+        }
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            font-size: 2.5rem;
+            color: var(--primary-color);
+        }
+        .benefit-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+        .benefit {
+            text-align: center;
+            padding: 2rem;
+            background-color: var(--bg-color);
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .benefit:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+        }
+        .benefit-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+        .stats {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 4rem 0;
+        }
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            text-align: center;
+        }
+        .stat-item h3 {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+        .stat-item p {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+        .final-cta {
+            background-color: var(--bg-color);
+            padding: 6rem 0;
+            text-align: center;
+        }
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+        }
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+            .hero-subheadline {
+                font-size: 1.2rem;
+            }
+            .cta-form {
+                padding: 0 1rem;
+            }
+            .input-group {
+                flex-direction: column;
+            }
+
+            /* Benefits and Stats responsive changes */
+            .benefit-grid, .stats-grid {
+                grid-template-columns: 1fr; /* Make the grid single-column */
+            }
+        }
+    </style>
+</head>
+<body>
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Transforme su Negocio con Importaciones Eficientes</h1>
+                <p class="hero-subheadline">Más de 20 años conectando Chile con el mundo: China, EE.UU., Europa y Sudamérica</p>
+                <form id="my-form" class="cta-form">
+                    <div class="input-group">
+                        <input type="text" name="name" placeholder="Su nombre" required>
+                        <input type="email" name="email" placeholder="Su correo electrónico" required>
+                    </div>
+                    <button type="submit" class="btn">Obtener Consulta Gratuita</button>
+                </form>
+                <p class="privacy-note">Su información está segura con nosotros. No compartimos sus datos.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="benefits">
+        <div class="container">
+            <h2 class="section-title">Beneficios de Trabajar con ImportChile</h2>
+            <div class="benefit-grid">
+                <div class="benefit">
+                    <div class="benefit-icon">🌎</div>
+                    <h3>Acceso Global</h3>
+                    <p>Conectamos su negocio con los mejores proveedores de China, EE.UU. y Europa.</p>
+                </div>
+                <div class="benefit">
+                    <div class="benefit-icon">⏱️</div>
+                    <h3>Ahorro de Tiempo</h3>
+                    <p>Gestionamos todo el proceso, permitiéndole enfocarse en hacer crecer su negocio.</p>
+                </div>
+                <div class="benefit">
+                    <div class="benefit-icon">💰</div>
+                    <h3>Reducción de Costos</h3>
+                    <p>Nuestras relaciones y volumen nos permiten negociar mejores precios para usted.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="stats">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <h3>20+</h3>
+                    <p>Años de Experiencia</p>
+                </div>
+                <div class="stat-item">
+                    <h3>1000+</h3>
+                    <p>Clientes Satisfechos</p>
+                </div>
+                <div class="stat-item">
+                    <h3>$10M+</h3>
+                    <p>en Importaciones Anuales</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="final-cta">
+        <div class="container">
+            <h2 class="section-title">¿Listo para Revolucionar sus Importaciones?</h2>
+            <p>Únase a cientos de empresas chilenas que ya están ahorrando tiempo y dinero con ImportChile.</p>
+            <form id="my-form-2" class="cta-form">
+                <div class="input-group">
+                    <input type="text" name="name" placeholder="Su nombre" required>
+                    <input type="email" name="email" placeholder="Su correo electrónico" required>
+                </div>
+                <button type="submit" class="btn">Comenzar Ahora</button>
+            </form>
+            <p class="privacy-note">100% confidencial. No spam.</p>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 ImportChile. Todos los derechos reservados.</p>
+            <p>Email: info@importchile.com | Teléfono: +56 2 1234 5678</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
