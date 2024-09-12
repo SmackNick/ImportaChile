@@ -6,9 +6,6 @@
     <title>ImportChile - Servicios de Importación de Clase Mundial</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
-    <!-- Formspree SDK -->
-    <script src="https://formspree.io/js/formspree-react.min.js"></script>
-
     <style>
         :root {
             --primary-color: #003399;
@@ -104,7 +101,7 @@
             opacity: 0.8;
             margin-top: 1rem;
         }
-        .benefits {
+        .benefits, .features {
             padding: 6rem 0;
             background-color: white;
         }
@@ -114,12 +111,12 @@
             font-size: 2.5rem;
             color: var(--primary-color);
         }
-        .benefit-grid {
+        .benefit-grid, .feature-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 2rem;
         }
-        .benefit {
+        .benefit, .feature {
             text-align: center;
             padding: 2rem;
             background-color: var(--bg-color);
@@ -127,7 +124,7 @@
             box-shadow: 0 4px 6px rgba(0,0,0,0.1);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
-        .benefit:hover {
+        .benefit:hover, .feature:hover {
             transform: translateY(-5px);
             box-shadow: 0 6px 12px rgba(0,0,0,0.15);
         }
@@ -180,8 +177,8 @@
                 flex-direction: column;
             }
 
-            /* Benefits and Stats responsive changes */
-            .benefit-grid, .stats-grid {
+            /* Benefits, Features, and Stats responsive changes */
+            .benefit-grid, .feature-grid, .stats-grid {
                 grid-template-columns: 1fr; /* Make the grid single-column */
             }
         }
@@ -193,13 +190,25 @@
             <div class="hero-content">
                 <h1>Transforme su Negocio con Importaciones Eficientes</h1>
                 <p class="hero-subheadline">Más de 20 años conectando Chile con el mundo: China, EE.UU., Europa y Sudamérica</p>
-                <form id="my-form" class="cta-form">
+
+                <!-- Modified Formspree Form with Honeypot -->
+                <form
+                    action="https://formspree.io/f/xanwzolk"
+                    method="POST"
+                    class="cta-form"
+                    autocomplete="off"
+                >
                     <div class="input-group">
-                        <input type="text" name="name" placeholder="Su nombre" required>
-                        <input type="email" name="email" placeholder="Su correo electrónico" required>
+                        <input type="text" name="name" placeholder="Nombre" required>
+                        <input type="email" name="email" placeholder="Correo electrónico" required>
                     </div>
-                    <button type="submit" class="btn">Obtener Consulta Gratuita</button>
+
+                    <!-- Honeypot Field for Spam Protection -->
+                    <input type="text" name="honeypot" style="display:none;">
+
+                    <button type="submit" class="btn" style="font-size: 17px;">Obtener Consulta Gratuita</button>
                 </form>
+
                 <p class="privacy-note">Su información está segura con nosotros. No compartimos sus datos.</p>
             </div>
         </div>
@@ -212,17 +221,17 @@
                 <div class="benefit">
                     <div class="benefit-icon">🌎</div>
                     <h3>Acceso Global</h3>
-                    <p>Conectamos su negocio con los mejores proveedores de China, EE.UU. y Europa.</p>
+                    <p>Conectamos tu negocio con los mejores proveedores de China, EE.UU. y Europa.</p>
                 </div>
                 <div class="benefit">
                     <div class="benefit-icon">⏱️</div>
                     <h3>Ahorro de Tiempo</h3>
-                    <p>Gestionamos todo el proceso, permitiéndole enfocarse en hacer crecer su negocio.</p>
+                    <p>Gestionamos todo el proceso, permitiéndote enfocarte en hacer crecer tu negocio.</p>
                 </div>
                 <div class="benefit">
                     <div class="benefit-icon">💰</div>
                     <h3>Reducción de Costos</h3>
-                    <p>Nuestras relaciones y volumen nos permiten negociar mejores precios para usted.</p>
+                    <p>Nuestras relaciones y volumen nos permiten negociar mejores precios.</p>
                 </div>
             </div>
         </div>
@@ -232,16 +241,37 @@
         <div class="container">
             <div class="stats-grid">
                 <div class="stat-item">
-                    <h3>20+</h3>
+                    <h3 data-target="20">0+</h3>
                     <p>Años de Experiencia</p>
                 </div>
                 <div class="stat-item">
-                    <h3>1000+</h3>
+                    <h3 data-target="250">0+</h3>
                     <p>Clientes Satisfechos</p>
                 </div>
                 <div class="stat-item">
-                    <h3>$10M+</h3>
-                    <p>en Importaciones Anuales</p>
+                    <h3 data-target="10000000">USD 0+</h3>
+                    <p>en Importaciones</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- New Section: Nuestros Servicios -->
+    <section class="features">
+        <div class="container">
+            <h2 class="section-title">Nuestros Servicios</h2>
+            <div class="feature-grid">
+                <div class="feature">
+                    <h3>Logística Integral</h3>
+                    <p>Gestionamos todo el proceso logístico, desde el proveedor hasta la entrega en Chile.</p>
+                </div>
+                <div class="feature">
+                    <h3>Asesoría Aduanera</h3>
+                    <p>Ofrecemos orientación experta en regulaciones y trámites aduaneros chilenos.</p>
+                </div>
+                <div class="feature">
+                    <h3>Negociación con Proveedores</h3>
+                    <p>Utilizamos nuestra experiencia para asegurar los mejores términos con proveedores internacionales.</p>
                 </div>
             </div>
         </div>
@@ -249,58 +279,85 @@
 
     <section class="final-cta">
         <div class="container">
-            <h2 class="section-title">¿Listo para Revolucionar sus Importaciones?</h2>
-            <p>Únase a cientos de empresas chilenas que ya están ahorrando tiempo y dinero con ImportChile.</p>
-            <form id="my-form-2" class="cta-form">
+            <h2 class="section-title">¿Listo para Revolucionar tus Importaciones?</h2>
+            <p>Únete a cientos de empresas que ya han ahorrado tiempo y plata con ImportChile.</p>
+
+            <!-- Second Formspree Form -->
+            <form
+                action="https://formspree.io/f/xanwzolk"
+                method="POST"
+                class="cta-form"
+                autocomplete="off"
+            >
                 <div class="input-group">
-                    <input type="text" name="name" placeholder="Su nombre" required>
-                    <input type="email" name="email" placeholder="Su correo electrónico" required>
+                    <input type="text" name="name" placeholder="Nombre" required>
+                    <input type="email" name="email" placeholder="Correo electrónico" required>
                 </div>
-                <button type="submit" class="btn">Comenzar Ahora</button>
+
+                <!-- Honeypot Field for Spam Protection -->
+                <input type="text" name="honeypot" style="display:none;">
+
+                <button type="submit" class="btn" style="font-size: 17px;">Comenzar Ahora</button>
             </form>
+
             <p class="privacy-note">100% confidencial. No spam.</p>
         </div>
     </section>
 
     <footer>
         <div class="container">
-            <p>&copy; 2023 ImportChile. Todos los derechos reservados.</p>
-            <p>Email: info@importchile.com | Teléfono: +56 2 1234 5678</p>
+            <p>&copy; 2024 ImportChile. Todos los derechos reservados.</p>
+            <p>Email: info@importchile.com</p>
         </div>
     </footer>
 
-    <!-- Custom Script for Form Submission -->
+    <!-- JavaScript for Animating Stats with Custom Number Formatting -->
     <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            const form = document.getElementById('my-form');
-            const form2 = document.getElementById('my-form-2');
+        document.addEventListener('DOMContentLoaded', function() {
+            const counters = document.querySelectorAll('.stat-item h3');
+            const statsSection = document.querySelector('.stats');
 
-            const submitForm = function(form) {
-                form.addEventListener("submit", function(e) {
-                    e.preventDefault();  // Prevents the form from refreshing the page
-                    console.log("Form submitted");
-
-                    const formData = new FormData(form);
-
-                    formspree.submitForm('xanwzolk', formData)  // Replace 'your-form-id' with your actual Formspree form ID
-                        .then(response => {
-                            if (response.ok) {
-                                console.log('Form submitted successfully');
-                                alert('Form submitted successfully!');
-                            } else {
-                                console.log('Error submitting form:', response);
-                                alert('Form submission failed.');
-                            }
-                        })
-                        .catch(error => {
-                            console.error('Error submitting form:', error);
-                            alert('Error submitting form.');
-                        });
-                });
+            const formatNumber = (num) => {
+                if (num >= 1000000) {
+                    return `USD $${(num / 1000000).toFixed(1)}M+`;
+                }
+                return `${num}+`;
             };
 
-            submitForm(form);
-            submitForm(form2);
+            const animateCounter = (counter) => {
+                const target = +counter.getAttribute('data-target');
+                const duration = 4000; // Total animation duration
+                const increment = target / (duration / 60); // Increment based on 60 FPS
+
+                let current = 0;
+
+                const updateCounter = () => {
+                    if (current < target) {
+                        current += increment;
+                        if (target >= 1000000) {
+                            counter.innerText = formatNumber(current);
+                        } else {
+                            counter.innerText = `${Math.floor(current)}+`;
+                        }
+                        requestAnimationFrame(updateCounter);
+                    } else {
+                        counter.innerText = formatNumber(target); // Ensure final value is set
+                    }
+                };
+
+                updateCounter();
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        counters.forEach(counter => animateCounter(counter));
+                        observer.unobserve(statsSection); // Stop observing after animation runs
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            observer.observe(statsSection);
         });
     </script>
 
