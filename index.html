@@ -38,9 +38,6 @@
             text-align: center;
             color: white;
         }
-        .hero-content {
-            max-width: 800px;
-        }
         h1 {
             font-size: 3.5rem;
             margin-bottom: 1rem;
@@ -163,16 +160,28 @@
             text-align: center;
             padding: 2rem 0;
         }
+
+        /* Mobile adjustments */
         @media (max-width: 768px) {
+            .hero {
+                background-size: contain; /* Ensure the whole image fits on the screen */
+                background-position: center top; /* Adjust positioning for mobile */
+                background-attachment: scroll; /* Remove the fixed attachment for mobile */
+                height: auto; /* Allow the height to adjust naturally */
+            }
+
             h1 {
                 font-size: 2.5rem;
             }
+
             .hero-subheadline {
                 font-size: 1.2rem;
             }
+
             .cta-form {
                 padding: 0 1rem;
             }
+
             .input-group {
                 flex-direction: column;
             }
