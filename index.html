@@ -28,9 +28,10 @@
         }
         .hero {
             background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
-            background-size: cover;
+            background-size: cover; /* Ensures the image covers the entire area */
             background-position: center;
             background-attachment: fixed;
+            background-repeat: no-repeat; /* Prevents image from repeating */
             height: 100vh;
             display: flex;
             align-items: center;
@@ -164,9 +165,10 @@
         /* Mobile adjustments */
         @media (max-width: 768px) {
             .hero {
-                background-size: contain; /* Ensure the whole image fits on the screen */
+                background-size: cover; /* Still use cover, but adjust other settings */
                 background-position: center top; /* Adjust positioning for mobile */
                 background-attachment: scroll; /* Remove the fixed attachment for mobile */
+                background-repeat: no-repeat; /* Ensure it doesn't repeat */
                 height: auto; /* Allow the height to adjust naturally */
             }
 
